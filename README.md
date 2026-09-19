@@ -29,15 +29,15 @@ A full-stack, production-grade **Team Task Management System** built with **ASP.
 
 ---
 
-## 🔑 Sample Credentials
+## 👥 User Roles & Permissions
 
-The application automatically seeds 3 pre-configured demo user accounts upon first launch. No registration is required to start testing:
+The application supports 3 pre-configured system roles:
 
-| Role | Email Address | Password | Permissions |
-| :--- | :--- | :--- | :--- |
-| 👑 **Admin** | `admin@taskmanager.com` | `Admin@123` | Full administrative system control |
-| 👔 **Manager** | `manager@taskmanager.com` | `Manager@123` | Team creation, task assignment, team scoping |
-| 👤 **User** | `user@taskmanager.com` | `User@123` | Personal assigned task execution & comments |
+| Role | System Permissions |
+| :--- | :--- |
+| 👑 **Admin** | Full administrative system control, user management, role assignments, and account deletion |
+| 👔 **Manager** | Team creation, member management, task creation, assignment, and team scoping |
+| 👤 **User** | Access to assigned tasks, status updates (ToDo → InProgress → Done), and task comments |
 
 ---
 
