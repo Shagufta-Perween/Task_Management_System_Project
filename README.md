@@ -135,57 +135,31 @@ docker-compose up --build
 
 ---
 
-## 🌐 How to Get a Live Swagger Public URL (Free Cloud Deployment)
+## 🌐 How to Deploy for a Live Swagger URL
 
-To deploy your backend API to the cloud and obtain a **live, public Swagger URL** (accessible from anywhere online without running locally):
+To get a public, live URL for your Swagger API documentation (e.g. `https://your-api-name.onrender.com/swagger`), follow these deployment steps using free cloud hosting platforms:
 
-### Option 1: Deploy on Render (Recommended - Free & 1-Click GitHub Integration)
-
-1. Sign up or log in at **[Render.com](https://render.com)** using your GitHub account.
-2. Click **New +** → **Web Service**.
-3. Select and connect your repository: `Shagufta-Perween/Task_Management_System_Project`.
-4. Configure service settings:
-   - **Name**: `task-management-api` (or your preferred name)
-   - **Runtime / Environment**: `Docker`
-   - **Dockerfile Path**: `./backend/TaskManagement.API/Dockerfile`
-   - **Docker Context**: `./backend/TaskManagement.API`
-5. Click **Create Web Service**.
-6. Render will automatically build your Docker container directly from GitHub and generate a live HTTPS URL.
-7. Your **Live Public Swagger Documentation URL** will be:
-   ```text
-   https://<your-app-name>.onrender.com/swagger
-   ```
+### Option A: Deploy on Render (Free & Recommended)
+1. Push your latest code to your GitHub repository ([`Task_Management_System_Project`](https://github.com/Shagufta-Perween/Task_Management_System_Project)).
+2. Sign up / Log in to [Render.com](https://render.com) using your GitHub account.
+3. Click **New +** → select **Web Service**.
+4. Connect your repository: `Shagufta-Perween/Task_Management_System_Project`.
+5. Select **Docker** as the Runtime (it will automatically detect `backend/TaskManagement.API/Dockerfile`).
+6. Set Environment Variables:
+   - `ASPNETCORE_ENVIRONMENT`: `Production`
+7. Click **Create Web Service**.
+8. Once deployment finishes, your live Swagger UI will be accessible at:  
+   **`https://<your-render-app-name>.onrender.com/swagger`**
 
 ---
 
-### Option 2: Deploy on Railway
-
-1. Sign up at **[Railway.app](https://railway.app)** using your GitHub account.
+### Option B: Deploy on Railway
+1. Sign up at [Railway.app](https://railway.app) using GitHub.
 2. Click **New Project** → **Deploy from GitHub repo**.
-3. Select `Shagufta-Perween/Task_Management_System_Project`.
-4. Set Root Directory to `backend/TaskManagement.API`.
-5. Railway will automatically build the .NET API container and provide a live URL with Swagger enabled at `/swagger`.
-
----
-
-## 📖 API Endpoints Summary
-
-| Method | Endpoint | Description | Auth Required |
-| :--- | :--- | :--- | :--- |
-| `POST` | `/api/Auth/login` | Authenticate user & receive JWT token | ❌ Public |
-| `POST` | `/api/Auth/register` | Register new user account | ❌ Public |
-| `GET` | `/api/Dashboard` | Fetch metrics overview & recent activity | 🔒 Token Required |
-| `GET` | `/api/Tasks` | List tasks (supports filtering & role scoping) | 🔒 Token Required |
-| `POST` | `/api/Tasks` | Create new task item | 🔒 Admin / Manager |
-| `PUT` | `/api/Tasks/{id}` | Update existing task item | 🔒 Admin / Manager |
-| `PATCH` | `/api/Tasks/{id}/status` | Update task status (ToDo → InProgress → Done) | 🔒 Token Required |
-| `DELETE` | `/api/Tasks/{id}` | Delete task item | 🔒 Admin / Manager |
-| `GET` | `/api/Teams` | List teams | 🔒 Token Required |
-| `POST` | `/api/Teams` | Create new team | 🔒 Admin / Manager |
-| `POST` | `/api/Teams/{id}/members` | Add member to team | 🔒 Admin / Manager |
-| `GET` | `/api/Users` | List system users | 🔒 Admin Only |
-| `PUT` | `/api/Users/{id}/role` | Update user system role | 🔒 Admin Only |
-| `DELETE` | `/api/Users/{id}` | Delete user account | 🔒 Admin Only |
+3. Select `Task_Management_System_Project` and specify root directory as `backend/TaskManagement.API`.
+4. Railway will automatically build and deploy your .NET 9 API.
+5. Generate a public domain under **Settings** → **Networking**. Your live Swagger URL will be live at:  
+   **`https://<your-railway-domain>.up.railway.app/swagger`**
 
 ---
 
