@@ -135,6 +135,39 @@ docker-compose up --build
 
 ---
 
+## 🌐 How to Get a Live Swagger Public URL (Free Cloud Deployment)
+
+To deploy your backend API to the cloud and obtain a **live, public Swagger URL** (accessible from anywhere online without running locally):
+
+### Option 1: Deploy on Render (Recommended - Free & 1-Click GitHub Integration)
+
+1. Sign up or log in at **[Render.com](https://render.com)** using your GitHub account.
+2. Click **New +** → **Web Service**.
+3. Select and connect your repository: `Shagufta-Perween/Task_Management_System_Project`.
+4. Configure service settings:
+   - **Name**: `task-management-api` (or your preferred name)
+   - **Runtime / Environment**: `Docker`
+   - **Dockerfile Path**: `./backend/TaskManagement.API/Dockerfile`
+   - **Docker Context**: `./backend/TaskManagement.API`
+5. Click **Create Web Service**.
+6. Render will automatically build your Docker container directly from GitHub and generate a live HTTPS URL.
+7. Your **Live Public Swagger Documentation URL** will be:
+   ```text
+   https://<your-app-name>.onrender.com/swagger
+   ```
+
+---
+
+### Option 2: Deploy on Railway
+
+1. Sign up at **[Railway.app](https://railway.app)** using your GitHub account.
+2. Click **New Project** → **Deploy from GitHub repo**.
+3. Select `Shagufta-Perween/Task_Management_System_Project`.
+4. Set Root Directory to `backend/TaskManagement.API`.
+5. Railway will automatically build the .NET API container and provide a live URL with Swagger enabled at `/swagger`.
+
+---
+
 ## 📖 API Endpoints Summary
 
 | Method | Endpoint | Description | Auth Required |
